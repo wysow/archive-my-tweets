@@ -15,7 +15,7 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand avatar" href="<?php echo $config['system']['baseUrl']; ?>"><img src="<?php echo $config['system']['baseUrl']; ?>img/avatar.png"></a>
+				<a class="brand avatar" href="<?php echo $config['system']['baseUrl']; ?>"><img src="http://www.gravatar.com/avatar/65be05f277fda32ff42b5575adcb8bde?s=80"></a>
 				<ul id="primary-nav" class="nav">
 					<li><a class="brand" href="<?php echo $config['system']['baseUrl']; ?>">@<?php echo $config['twitter']['username']; ?></a></li>
 				</ul>
@@ -31,7 +31,7 @@
 
 	<div class="container">
 		<div class="row">
-	
+
 			<?php echo $content; ?>
 
 		</div><!-- /.row -->
