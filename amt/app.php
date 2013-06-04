@@ -22,7 +22,7 @@ class App {
 	 * @param array $config Exp
 	 */
 	public function __construct($config) {
-		
+
 		// merge user config with default config
 		$defaultConfig = array(
 			'twitter' => array(
@@ -93,7 +93,7 @@ class App {
 	public function run() {
 		$this->router->route();
 	}
-	
+
 	/**
 	 * Grabs all the latest tweets and puts them into the database.
 	 *
@@ -108,6 +108,23 @@ class App {
 
 		$archiver = new Archiver($this->config['twitter']['username'], $twitter, $this->model);
 		return $archiver->archive();
+
+	}
+
+	/**
+	 * Grabs all the latest favorites tweets and puts them into the database.
+	 *
+	 * @return string Returns a string with informational output.
+	 */
+	public function archiveFavorites() {
+
+		// create twitter instance
+		$twitter = new \TijsVerkoyen\Twitter\Twitter($this->config['auth']['consumerKey'], $this->config['auth']['consumerSecret']);
+		$twitter->setOAuthToken($this->config['auth']['oauthToken']);
+		$twitter->setOAuthTokenSecret($this->config['auth']['oauthSecret']);
+
+		$archiver = new Archiver($this->config['twitter']['username'], $twitter, $this->model);
+		return $archiver->archiveFavorites();
 
 	}
 

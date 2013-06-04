@@ -35,6 +35,9 @@ class Controller {
 		$current_page = (isset($_GET['page'])) ? $_GET['page']: 1;
 		$offset = ($current_page > 1) ? (($current_page-1) * $perPage) : 0;
 
+		// to avoid error on header index in data
+		$this->data['header'] = null;
+
 		// the big switch. this decides what to show on the page.
 		if (isset($_GET['id'])) {
 		

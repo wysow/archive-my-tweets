@@ -30,11 +30,18 @@ if ($isCLI || $isWeb) {
 		echo $archiveOutput;
 	}
 
+	// favorite tweets
+	$archiveOutput = $amt->archiveFavorites();
+	if ($isWeb) {
+		echo '<pre>' . $archiveOutput . '</pre>';
+	} else {
+		echo $archiveOutput;
+	}
 } else {
 
 	echo "Not authorized.\n";
 	exit(1);
-	
+
 }
 
 ?>
